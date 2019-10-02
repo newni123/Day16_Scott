@@ -1,12 +1,12 @@
 package com.iu.view;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.iu.dept.DeptDTO;
 
 public class DeptView {
-	public void view(String str) {
-		System.out.println(str);
+	public void view(String string) {
+		System.out.println(string);
 
 	}
 
@@ -18,7 +18,7 @@ public class DeptView {
 
 	}
 
-	public void view(ArrayList<DeptDTO> dtos) {
+	public void view(List<DeptDTO> dtos) {
 		for (DeptDTO dto : dtos)
 			this.view(dto);
 

@@ -2,23 +2,35 @@ package com.iu.input;
 
 import java.util.Scanner;
 
+import com.iu.emp.EmpDTO;
+
 public class EmpInput {
 
 	private Scanner sc;
 
 	public EmpInput() {
 		sc = new Scanner(System.in);
+
 	}
 
-	public int select() {
-		System.out.println();
-		System.out.println("1. 전체 정보 출력");
-		System.out.println("2. 직원 번호로 검색");
-		System.out.println("3. 프로그램 종료");
-		System.out.print("번호를 입력하세요 : ");
-		int select = sc.nextInt();
-		System.out.println();
-		return select;
+	public EmpDTO EmpInsert() {
+		EmpDTO dto = new EmpDTO();
+		System.out.print("empno : ");
+		dto.setEmpno(sc.nextInt());
+		System.out.print("ename : ");
+		dto.setEname(sc.next());
+		System.out.print("job : ");
+		dto.setJob(sc.next());
+		System.out.print("mgr : ");
+		dto.setMgr(sc.nextInt());
+		System.out.print("sal : ");
+		dto.setSal(sc.nextInt());
+		System.out.print("comm : ");
+		dto.setComm(sc.nextInt());
+		System.out.print("deptno : ");
+		dto.setDeptno(sc.nextInt());
+		return dto;
+
 	}
 
 	public int empnoInput() {

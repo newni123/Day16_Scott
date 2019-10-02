@@ -1,13 +1,14 @@
 package com.iu.view;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.iu.emp.EmpDTO;
 
 public class EmpView {
 	// 출력
-	public void view(String str) {
-		System.out.println(str);
+	public void view(String string) {
+		System.out.println();
+		System.out.println(string);
 
 	}
 
@@ -23,7 +24,7 @@ public class EmpView {
 		System.out.println("deptno : " + dto.getDeptno());
 	}
 
-	public void view(ArrayList<EmpDTO> dtos) {
+	public void view(List<EmpDTO> dtos) {
 		for (EmpDTO dto : dtos)
 			this.view(dto);
 		/*

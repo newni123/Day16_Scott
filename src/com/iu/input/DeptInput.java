@@ -2,6 +2,8 @@ package com.iu.input;
 
 import java.util.Scanner;
 
+import com.iu.dept.DeptDTO;
+
 public class DeptInput {
 	private Scanner sc;
 
@@ -9,15 +11,16 @@ public class DeptInput {
 		sc = new Scanner(System.in);
 	}
 
-	public int select() {
-		System.out.println();
-		System.out.println("1. 전체 정보 출력");
-		System.out.println("2. 부서 번호로 검색");
-		System.out.println("3. 프로그램 종료");
-		System.out.print("번호를 입력하세요 : ");
-		int select = sc.nextInt();
-		System.out.println();
-		return select;
+
+	public DeptDTO insert() {
+		DeptDTO dto = new DeptDTO();
+		System.out.print("deptno : ");
+		dto.setDeptno(sc.nextInt());
+		System.out.print("dname : ");
+		dto.setDname(sc.next());
+		System.out.print("loc : ");
+		dto.setLoc(sc.next());
+		return dto;
 	}
 
 	public int deptnoInput() {

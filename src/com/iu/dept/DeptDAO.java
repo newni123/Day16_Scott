@@ -5,11 +5,49 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 import com.iu.util.DBConnector;
 
 public class DeptDAO {
-	public ArrayList<DeptDTO> getSelectList(ArrayList<DeptDTO> dtos) {
+	
+	public int deptInsert(DeptDTO dto) {
+		Connection conn = null;
+		PreparedStatement st = null;
+		Scanner sc = new Scanner(System.in);
+		DBConnector db = new DBConnector();
+		int result = 0;
+
+		try {
+			conn = db.getConnect();
+			String sql = "insert into dept values (?,?,?)";
+			st = conn.prepareStatement(sql);
+			st.setInt(1, dto.getDeptno());
+			st.setString(2, dto.getDname());
+			st.setString(3, dto.getLoc());
+			result = st.executeUpdate();
+			if (result > 0)
+				System.out.println("정보 입력 완료");
+			else
+				System.out.println("정보 입력 실패");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				st.close();
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return result;
+
+	}
+
+	public List<DeptDTO> getSelectList() {
 
 		// 전체 사원 정보를 리턴
 		DBConnector db = new DBConnector();
@@ -17,10 +55,11 @@ public class DeptDAO {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		DeptDTO deptdto = null;
+		ArrayList<DeptDTO> dtos = new ArrayList<DeptDTO>();
 
 		try {
 			conn = db.getConnect();
-			String sql = "select * from dept";
+			String sql = "select * from dept order by deptno asc";
 			st = conn.prepareStatement(sql);
 			rs = st.executeQuery();
 			while (rs.next()) {

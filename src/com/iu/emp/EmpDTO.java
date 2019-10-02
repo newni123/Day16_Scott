@@ -75,4 +75,6 @@ public class EmpDTO {
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
+
+
 }
