@@ -7,8 +7,8 @@ public class DBConnector {
 	// 메서드명 getConnect
 	public static Connection getConnect() throws Exception {
 
-		String username = "scott";
-		String password = "tiger";
+		String username = "hr";
+		String password = "hr";
 		String url = "jdbc:oracle:thin:@192.168.56.101:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		Connection conn = null;
