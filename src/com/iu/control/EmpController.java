@@ -27,7 +27,8 @@ public class EmpController {
 			System.out.println("1. 전체 정보 출력");
 			System.out.println("2. 직원 번호로 검색");
 			System.out.println("3. 직원 정보 추가");
-			System.out.println("4. 프로그램 종료");
+			System.out.println("4. 직원 정보 삭제");
+			System.out.println("5. 프로그램 종료");
 			System.out.print("번호를 입력하세요 : ");
 			int select = sc.nextInt();
 			System.out.println();
@@ -49,14 +50,21 @@ public class EmpController {
 				select = dao.mgrCheck(dto);
 				if (select == 1)
 					dao.insert(dto);
-				else 
+				else
 					System.out.println("없는 매니저 번호");
 				String s = "Insert Fail";
 				if (select > 0)
 					s = "insert Success";
 				ev.view(s);
 				break;
-
+			case 4:
+				int empno = ei.empnoDelete();
+				empno = dao.delete(empno);
+				if(empno == 1) 
+					System.out.println("삭제 완료");
+				else 
+					System.out.println("삭제 실패");
+				break;
 			default:
 				System.out.println("프로그램 종료 ");
 				check = !check;

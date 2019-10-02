@@ -12,6 +12,12 @@ public class EmpInput {
 		sc = new Scanner(System.in);
 
 	}
+	
+	public int empnoDelete() {
+		System.out.print("삭제할 직원번호를 입력하세요 : ");
+		int select = sc.nextInt();
+		return select;
+	}
 
 	public EmpDTO EmpInsert() {
 		EmpDTO dto = new EmpDTO();

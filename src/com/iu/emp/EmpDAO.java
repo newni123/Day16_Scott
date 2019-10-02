@@ -11,6 +11,27 @@ import com.iu.util.DBConnector;
 
 public class EmpDAO {
 
+	public int delete(int empno) {
+		DBConnector db = new DBConnector();
+		Connection conn = null;
+		PreparedStatement st = null;
+		int check = 0;
+		try {
+			conn = db.getConnect();
+			String sql = "delete from emp where empno = ?";
+			st = conn.prepareStatement(sql);
+			st.setInt(1,empno);
+			check = st.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return check;
+	
+		
+		
+	}
 	public int mgrCheck(EmpDTO dto) {
 		DBConnector db = new DBConnector();
 		Connection conn = null;
