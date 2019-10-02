@@ -54,7 +54,7 @@ public class DeptController {
 			case 3:
 
 				dto = di.insert();
-				dao.deptInsert(dto);
+				select = dao.deptInsert(dto);
 				String s = "Insert Fail";
 				if(select > 0 ) 
 					s = "insert Success";
