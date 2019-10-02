@@ -27,18 +27,6 @@ public class EmpView {
 	public void view(List<EmpDTO> dtos) {
 		for (EmpDTO dto : dtos)
 			this.view(dto);
-		/*
-		 * for (int i = 0; i < dtos.size(); i++) { System.out.println();
-		 * System.out.println("empno : " + dtos.get(i).getEmpno());
-		 * System.out.println("ename : " + dtos.get(i).getEname());
-		 * System.out.println("job : " + dtos.get(i).getJob());
-		 * System.out.println("mgr : " + dtos.get(i).getMgr());
-		 * System.out.println("hiredate : " + dtos.get(i).getHireDate());
-		 * System.out.println("sal : " + dtos.get(i).getSal());
-		 * System.out.println("comm : " + dtos.get(i).getComm());
-		 * System.out.println("deptno : " + dtos.get(i).getDeptno());
-		 * 
-		 * }
-		 */
+	
 	}
 }

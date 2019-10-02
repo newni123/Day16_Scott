@@ -16,11 +16,10 @@ public class DeptDAO {
 		Connection conn = null;
 		PreparedStatement st = null;
 		Scanner sc = new Scanner(System.in);
-		DBConnector db = new DBConnector();
 		int result = 0;
 
 		try {
-			conn = db.getConnect();
+			conn = DBConnector.getConnect();
 			String sql = "insert into dept values (?,?,?)";
 			st = conn.prepareStatement(sql);
 			st.setInt(1, dto.getDeptno());
@@ -50,7 +49,6 @@ public class DeptDAO {
 	public List<DeptDTO> getSelectList() {
 
 		// 전체 사원 정보를 리턴
-		DBConnector db = new DBConnector();
 		Connection conn = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -58,7 +56,7 @@ public class DeptDAO {
 		ArrayList<DeptDTO> dtos = new ArrayList<DeptDTO>();
 
 		try {
-			conn = db.getConnect();
+			conn = DBConnector.getConnect();
 			String sql = "select * from dept order by deptno asc";
 			st = conn.prepareStatement(sql);
 			rs = st.executeQuery();
@@ -87,14 +85,13 @@ public class DeptDAO {
 	}
 
 	public DeptDTO getSelectOne(int deptno) {
-		DBConnector db = new DBConnector();
 		Connection conn = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		DeptDTO deptdto = null;
 
 		try {
-			conn = db.getConnect();
+			conn = DBConnector.getConnect();
 			String sql = "select * from dept where deptno = ?";
 			st = conn.prepareStatement(sql);
 			st.setInt(1, deptno);

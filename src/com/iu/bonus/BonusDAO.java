@@ -16,11 +16,9 @@ public class BonusDAO {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		BonusDTO bonusDTO = null;
-		DBConnector db = new DBConnector();
 
 		try {
-
-			con = db.getConnect();
+			con = DBConnector.getConnect();
 
 			String sql = "select * from bonus where ename=?";
 			st = con.prepareStatement(sql);
@@ -53,11 +51,11 @@ public class BonusDAO {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		BonusDTO bonusDTO = null;
-		DBConnector db = new DBConnector();
+
 		ArrayList<BonusDTO> ar = new ArrayList<BonusDTO>();
 
 		try {
-			con = db.getConnect();
+			con = DBConnector.getConnect();
 
 			String sql = "select * from bonus";
 			st = con.prepareStatement(sql);
@@ -89,11 +87,10 @@ public class BonusDAO {
 	public int insert(BonusDTO bonusDTO) {
 		Connection con = null;
 		PreparedStatement st = null;
-		DBConnector db = new DBConnector();
 		int result = 0;
 
 		try {
-			con = db.getConnect();
+			con = DBConnector.getConnect();
 
 			String sql = "insert into bonus values(?,?,?,?)";
 			st = con.prepareStatement(sql);
@@ -119,11 +116,10 @@ public class BonusDAO {
 	public int delete(String ename) {
 		Connection con = null;
 		PreparedStatement st = null;
-		DBConnector db = new DBConnector();
 		int result = 0;
 
 		try {
-			con = db.getConnect();
+			con = DBConnector.getConnect();
 
 			String sql = "delete bonus where ename=?";
 			st = con.prepareStatement(sql);

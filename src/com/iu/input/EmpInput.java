@@ -44,4 +44,9 @@ public class EmpInput {
 		int select = sc.nextInt();
 		return select;
 	}
+	public String enameInput() {
+		System.out.print("검색할 직원이름을 입력하세요 : ");
+		String ename = sc.next();
+		return ename;
+	}
 }

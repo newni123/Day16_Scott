@@ -24,7 +24,7 @@ public class BonusController {
 	public void start() {
 		boolean check = true;
 
-		while(check) {
+		while (check) {
 			System.out.println("1. 보너스 전체출력");
 			System.out.println("2. 보너스 이름별출력");
 			System.out.println("3. 보너스정보 추가");
@@ -32,10 +32,10 @@ public class BonusController {
 			System.out.println("5. 종료");
 			int num = sc.nextInt();
 
-			switch(num) {
+			switch (num) {
 			case 1:
 				List<BonusDTO> ar = bonusDAO.getSelectAll();
-				if(ar.size()!=0) {
+				if (ar.size() != 0) {
 					bonusView.view(ar);
 				} else {
 					System.out.println("데이터가 없습니다.");
@@ -45,10 +45,10 @@ public class BonusController {
 			case 2:
 				String ename = bonusInput.enameInput();
 				BonusDTO bonusDTO = bonusDAO.getSelectOne(ename);
-				if(bonusDTO!=null) {
+				if (bonusDTO != null) {
 					bonusView.view(bonusDTO);
 				} else {
-					//bonusView.view("없는 이름입니다.");
+					bonusView.view("없는 이름입니다.");
 				}
 				break;
 
@@ -56,7 +56,7 @@ public class BonusController {
 				BonusDTO bonusDTO2 = bonusInput.salInsert();
 				int result = bonusDAO.insert(bonusDTO2);
 
-				if(result>0) {
+				if (result > 0) {
 					System.out.println("추가성공");
 					bonusView.view(bonusDTO2);
 				} else {
@@ -68,7 +68,7 @@ public class BonusController {
 				ename = bonusInput.enameInput();
 				result = bonusDAO.delete(ename);
 
-				if(result>0) {
+				if (result > 0) {
 					System.out.println("삭제성공");
 				} else {
 					System.out.println("삭제실패");
@@ -77,10 +77,9 @@ public class BonusController {
 				break;
 
 			default:
-				check=!check;
-			}//switch문 끝
-		}//while문 끝
-	}//start 메서드 끝
-
+				check = !check;
+			}// switch문 끝
+		} // while문 끝
+	}// start 메서드 끝
 
 }
