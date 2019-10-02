@@ -3,6 +3,10 @@ package com.iu.bonus;
 import java.util.List;
 
 public class BonusView {
+	public void view(String s) {
+
+	}
+
 	public void view(BonusDTO bonusDTO) {
 		System.out.println("ENAME : " + bonusDTO.getEname());
 		System.out.println("JOB : " + bonusDTO.getJob());

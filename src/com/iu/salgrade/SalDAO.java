@@ -13,12 +13,11 @@ public class SalDAO {
 	Connection con = null;
 	PreparedStatement st = null;
 	ResultSet rs = null;
-	DBConnector db = new DBConnector();
 
 	public int delete(int grade) {
 		int result = 0;
 		try {
-			con = db.getConnect();
+			con=DBConnector.getConnect();
 			con.setAutoCommit(false); // 오토커밋해제
 			String sql = "delete from salgrade where grade = ?";
 			st = con.prepareStatement(sql);
@@ -44,7 +43,7 @@ public class SalDAO {
 	public int insert(SalDTO salDTO) {
 		int result = 0;
 		try {
-			con = db.getConnect();
+			con=DBConnector.getConnect();
 			String sql = "insert into salgrade values (?,?,?)";
 			st = con.prepareStatement(sql);
 			st.setInt(1, salDTO.getGrade());
@@ -56,7 +55,6 @@ public class SalDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				rs.close();
 				st.close();
 				con.close();
 			} catch (SQLException e) {
@@ -71,7 +69,7 @@ public class SalDAO {
 		ArrayList<SalDTO> ar = new ArrayList<SalDTO>();
 		SalDTO salDTO = null;
 		try {
-			con = db.getConnect();
+			con=DBConnector.getConnect();
 			String sql = "select * from salgrade";
 			st = con.prepareStatement(sql);
 			rs = st.executeQuery();
@@ -104,7 +102,7 @@ public class SalDAO {
 
 		SalDTO salDTO = new SalDTO();
 		try {
-			con = db.getConnect();
+			con=DBConnector.getConnect();
 			String sql = "select * from salgrade where grade = ?";
 			st = con.prepareStatement(sql);
 			st.setInt(1, grade);
