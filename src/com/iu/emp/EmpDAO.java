@@ -18,13 +18,13 @@ public class EmpDAO {
 		int check = 0;
 		try {
 			conn = db.getConnect();
+			conn.setAutoCommit(false); // 오토커밋해제
 			String sql = "delete from emp where empno = ?";
 			st = conn.prepareStatement(sql);
 			st.setInt(1,empno);
 			check = st.executeUpdate();
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return check;
@@ -47,7 +47,6 @@ public class EmpDAO {
 			if (rs.next())
 				check = 1;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return check;
@@ -78,14 +77,12 @@ public class EmpDAO {
 				System.out.println("정보 입력 실패");
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
 				st.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -123,7 +120,6 @@ public class EmpDAO {
 				dtos.add(dto);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -131,7 +127,6 @@ public class EmpDAO {
 				st.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -165,7 +160,6 @@ public class EmpDAO {
 				dto.setDeptno(rs.getInt("deptno"));
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			try {
@@ -173,7 +167,6 @@ public class EmpDAO {
 				st.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
